@@ -2,8 +2,8 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Input from '$lib/components/ui/input/input.svelte';
 
-	let videoFile: File | null = null;
-	let outputFormat = 'mp4';
+	let videoFile: File | null = $state(null);
+	let outputFormat = $state('mp4');
 
 	function handleSubmit() {
 		console.log({
@@ -33,7 +33,7 @@
 				id="video-upload"
 				accept="video/*"
 				on:change={handleFileChange}
-				class="focus:ring-primary focus:border-primary w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none"
+				class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
 				required
 			/>
 		</div>
@@ -45,7 +45,7 @@
 			<select
 				id="output-format"
 				bind:value={outputFormat}
-				class="focus:ring-primary focus:border-primary w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:outline-none"
+				class="w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
 			>
 				<option value="mp4">MP4</option>
 				<option value="webm">WebM</option>
